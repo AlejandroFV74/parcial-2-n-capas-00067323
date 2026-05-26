@@ -1,7 +1,6 @@
-package com.aafv.ejercicioparcialdos.model;
+package com.aafv.ejercicioparcialdos.dto.response;
 
 import com.aafv.ejercicioparcialdos.common.enums.ArticleTypeEnum;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,21 +8,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@Entity
-@Table(name = "magic_provider")
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class MagicProvider {
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.UUID)
+@AllArgsConstructor
+public class ProviderResponse {
     private UUID id;
-
-    @Column
     private String name;
-
-    @Column
     private ArticleTypeEnum type;
 }

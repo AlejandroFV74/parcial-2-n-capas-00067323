@@ -5,6 +5,7 @@ import com.aafv.ejercicioparcialdos.model.MagicProvider;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class CreateArticleRequest {
     private ArticleTypeEnum type;
 
     @NotBlank(message = "Price cannot be empty")
+    @Positive(message = "Price must be a positive decimal")
     private BigDecimal price;
 
     @NotBlank(message = "A provider is required")

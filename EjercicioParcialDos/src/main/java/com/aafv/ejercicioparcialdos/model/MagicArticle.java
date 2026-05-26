@@ -2,12 +2,20 @@ package com.aafv.ejercicioparcialdos.model;
 
 import com.aafv.ejercicioparcialdos.common.enums.ArticleTypeEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Table(name = "magic_article")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MagicArticle {
 
     @Id
@@ -24,7 +32,7 @@ public class MagicArticle {
     @Column
     private BigDecimal price;
     //como se soluciona que este tipo sea container
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
     private MagicProvider provider;
 
 
